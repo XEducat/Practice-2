@@ -54,9 +54,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 1 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -71,9 +71,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 2 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -90,9 +90,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 3 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -109,9 +109,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 4 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -128,9 +128,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 5 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -147,9 +147,9 @@ namespace Practice_Linq
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 6 ========================");
-            foreach (var item in selectedGames)
+            foreach (var game in selectedGames)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(game.ToString());
             }
         }
 
@@ -233,15 +233,17 @@ namespace Practice_Linq
         {
             //Query 10: Вивести з 5-го по 10-тий (включно) матчі Gold Cup, які відбулися у липні 2023 р.
 
-            var selectedGames = games;    // Корегуємо запит !!!
+            var selectedGames = games
+                                .Where(game => game.Tournament == "Gold Cup" && 
+                                      (game.Date.Month == 7 && game.Date.Year == 2023))
+                                .Take(10).Skip(4);
 
-            // Перевірка
+            // Виведення
             Console.WriteLine("\n======================== QUERY 10 ========================");
-
-            // див. приклад як має бути виведено:
-
-
+            foreach (var game in selectedGames)
+            {
+                Console.WriteLine(game.ToString());
+            }
         }
-
     }
 }
