@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Linq;
 using System.Runtime.InteropServices;
 
 namespace Practice_Linq
@@ -48,7 +49,7 @@ namespace Practice_Linq
         static void Query1(List<FootballGame> games)
         {
             //Query 1: Вивести всі матчі, які відбулися в Україні у 2012 році.
-            var selectedGames = games.Where(game => game.Date.Year == 2012 && game.Country == "Ukraine"); // Корегуємо запит !!!
+            var selectedGames = games.Where(game => game.Date.Year == 2012 && game.Country == "Ukraine");
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 1 ========================");
@@ -62,16 +63,16 @@ namespace Practice_Linq
         static void Query2(List<FootballGame> games)
         {
             //Query 2: Вивести Friendly матчі збірної Італії, які вона провела з 2020 року.  
+            var selectedGames2 = from game in games
+                                 where game.Date.Year >= 2020 && (game.Home_team == "Italy" || game.Away_team == "Italy") && game.Tournament == "Friendly"
+                                 select game;
 
-            var selectedGames = games; // Корегуємо запит !!!
-
-
-            // Перевірка
+            // Виведення
             Console.WriteLine("\n======================== QUERY 2 ========================");
-
-            // див. приклад як має бути виведено:
-
-
+            foreach (var item in selectedGames2)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
 
         // Запит 3
