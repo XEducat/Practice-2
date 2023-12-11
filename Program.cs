@@ -186,11 +186,11 @@ namespace Practice_Linq
                                    Goals = game.Home_score + game.Away_score
                                });
 
-            // Перевірка
+            // Виведення
             Console.WriteLine("\n======================== QUERY 8 ========================");
             foreach (var match in selectedGames)
             {
-                Console.WriteLine($"MatchYear: {match.MatchYear}, Team1: {match.Team1}, Team2: {match.Team2}, Goals: {match.Goals}");
+                Console.WriteLine($"{match.MatchYear} {match.Team1} - {match.Team2}, Goals: {match.Goals}");
             }
         }
 
