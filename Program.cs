@@ -49,6 +49,7 @@ namespace Practice_Linq
         static void Query1(List<FootballGame> games)
         {
             //Query 1: Вивести всі матчі, які відбулися в Україні у 2012 році.
+
             var selectedGames = games.Where(game => game.Date.Year == 2012 && game.Country == "Ukraine");
 
             // Виведення
@@ -63,6 +64,7 @@ namespace Practice_Linq
         static void Query2(List<FootballGame> games)
         {
             //Query 2: Вивести Friendly матчі збірної Італії, які вона провела з 2020 року.  
+
             var selectedGames = from game in games
                                  where game.Date.Year >= 2020 && (game.Home_team == "Italy" || game.Away_team == "Italy") && game.Tournament == "Friendly"
                                  select game;
@@ -118,16 +120,19 @@ namespace Practice_Linq
         {
             //Query 5: Вивести всі кваліфікаційні матчі (UEFA Euro qualification), які відбулися у Києві чи у Харкові, а також за умови перемоги української збірної.
 
-
-            var selectedGames = games;  // Корегуємо запит !!!
+            var selectedGames = from game in games
+                                where game.Tournament == "UEFA Euro qualification"
+                                where game.City == "Kyiv" || game.City == "Kharkiv"
+                                where game.Home_score > game.Away_score
+                                select game;
 
 
             // Перевірка
             Console.WriteLine("\n======================== QUERY 5 ========================");
-
-            // див. приклад як має бути виведено:
-
-
+            foreach (var item in selectedGames)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
 
         // Запит 6
