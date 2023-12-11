@@ -63,13 +63,13 @@ namespace Practice_Linq
         static void Query2(List<FootballGame> games)
         {
             //Query 2: Вивести Friendly матчі збірної Італії, які вона провела з 2020 року.  
-            var selectedGames2 = from game in games
+            var selectedGames = from game in games
                                  where game.Date.Year >= 2020 && (game.Home_team == "Italy" || game.Away_team == "Italy") && game.Tournament == "Friendly"
                                  select game;
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 2 ========================");
-            foreach (var item in selectedGames2)
+            foreach (var item in selectedGames)
             {
                 Console.WriteLine(item.ToString());
             }
@@ -80,14 +80,17 @@ namespace Practice_Linq
         {
             //Query 3: Вивести всі домашні матчі збірної Франції за 2021 рік, де вона зіграла у нічию.
 
-            var selectedGames = games;   // Корегуємо запит !!!
-
-            // Перевірка
+            var selectedGames = from game in games
+                                where game.Date.Year == 2021
+                                where game.Country == "France" && game.Home_team == "France"
+                                where game.Home_score == game.Away_score
+                                select game;
+            // Виведення
             Console.WriteLine("\n======================== QUERY 3 ========================");
-
-            // див. приклад як має бути виведено:
-
-
+            foreach (var item in selectedGames)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
 
         // Запит 4
