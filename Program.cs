@@ -141,9 +141,9 @@ namespace Practice_Linq
             //Матчі мають відображатися від фіналу до чвертьфіналів (тобто у зворотній послідовності).
 
             var selectedGames = games
-                .Where(game => game.Tournament == "FIFA World Cup")
-                .OrderByDescending(game => game.Date)
-                .Take(8);
+                   .Where(game => game.Tournament == "FIFA World Cup")
+                   .OrderByDescending(game => game.Date)
+                   .Take(8);
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 6 ========================");
@@ -177,14 +177,14 @@ namespace Practice_Linq
             // MatchYear - рік матчу, Team1 - назва приймаючої команди, Team2 - назва гостьової команди, Goals - сума всіх голів за матч
 
             var selectedGames = games
-                               .Where(game => game.Tournament == "UEFA Euro" && game.Country == "Ukraine")
-                               .Select(game => new
-                               {
-                                   MatchYear = game.Date.Year,
-                                   Team1 = game.Home_team,
-                                   Team2 = game.Away_team,
-                                   Goals = game.Home_score + game.Away_score
-                               });
+                   .Where(game => game.Tournament == "UEFA Euro" && game.Country == "Ukraine")
+                   .Select(game => new
+                   {
+                       MatchYear = game.Date.Year,
+                       Team1 = game.Home_team,
+                       Team2 = game.Away_team,
+                       Goals = game.Home_score + game.Away_score
+                   });
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 8 ========================");
@@ -234,9 +234,9 @@ namespace Practice_Linq
             //Query 10: Вивести з 5-го по 10-тий (включно) матчі Gold Cup, які відбулися у липні 2023 р.
 
             var selectedGames = games
-                                .Where(game => game.Tournament == "Gold Cup" && 
-                                      (game.Date.Month == 7 && game.Date.Year == 2023))
-                                .Take(10).Skip(4);
+                   .Where(game => game.Tournament == "Gold Cup" && 
+                           (game.Date.Month == 7 && game.Date.Year == 2023))
+                   .Take(10).Skip(4);
 
             // Виведення
             Console.WriteLine("\n======================== QUERY 10 ========================");
