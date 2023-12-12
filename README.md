@@ -25,9 +25,12 @@
 
 ## Використання
 
-1. **Клонування репозиторію**: `git clone https://github.com/your-username/Practice_Linq.git`
-2. **Відкриття у Visual Studio**: Відкрийте `Practice_Linq.sln` у Visual Studio.
-3. **Запуск програми**: Зіберіть та запустіть програму у Visual Studio.
+1. **Клонування репозиторію**:
+   ```bash
+   git clone https://github.com/your-username/Practice_Linq.git
+   ```
+3. **Відкриття у Visual Studio**: Відкрийте `Practice_Linq.sln` у Visual Studio.
+4. **Запуск програми**: Зберіть та запустіть програму у Visual Studio.
 
 ## Залежності
 
